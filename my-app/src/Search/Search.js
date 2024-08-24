@@ -236,7 +236,7 @@ import {useLocation, useNavigate} from 'react-router-dom';
       console.log(finalTags); // This is an string array of uncategorized tags
 
       try{
-        const response = await fetch('/card-info', {
+        const response = await fetch('https://gator-relator-flask.onrender.com/card-info', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
