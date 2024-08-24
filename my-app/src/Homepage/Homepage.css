@@ -1,0 +1,323 @@
+#homepage-container{
+  width: 100vw;
+  height: 100vh;
+  background: url('../Photos/Gator-On-World.jpg') center/cover no-repeat, rgba(176, 182, 216, 0.8);
+  background-blend-mode: overlay; 
+  overflow: hidden;
+  position: relative;
+}
+
+.logo-and-search {
+  position: absolute;
+  font-size: 1rem;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  text-align: center; 
+}
+.logo {
+  display: block;
+  margin: 0 auto;
+  width: 100px; 
+  height: auto; 
+}
+.search-controls {
+  margin-top: 10px;
+  width: 43vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.search-input {
+  font-family: Helvetica;
+  color: black;
+  border: 0px solid gray;
+  border-radius: 10px;
+  font-size: 18px;
+  height: 100%;
+  width: 61% !important;
+  box-sizing: border-box;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .3);
+  font-size: 25px;
+  padding: 10px;
+}
+.filter-button:hover,
+.search-button:hover {
+  background: darkblue; 
+}
+#filter-settings {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 16px; 
+  top: 150%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  transition: top .5s ease-in-out;
+  height: 26vh;
+  width: 43vw; 
+  border-radius: 0px;
+  padding: 20px;
+  border: 3px solid black;
+  overflow-y:auto;
+  background-color: white;
+  border: 0px solid gray;
+  border-radius: 10px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .3);
+}
+#homepage-add-filters{
+  display: flex;
+  justify-content: space-between;
+}
+.filter-section {
+  font-family: "Helvetica";
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: space-between;
+  width: 20%; 
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 10px;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, .4);
+  padding: 8px;
+}
+.homepage-filter-section-head {
+  margin: 5px 0 10px 0;
+  text-align: left;
+  color: rgb(102, 98, 98);
+  font-size: 25px;
+  width: 100%;
+}
+.filter-right-side{
+  display: flex;
+  width: 100%;
+  justify-content: flex-start !important;
+  gap: 5px;
+}
+.filter-select{
+  width: 100%;
+}
+.add-tag{
+  font-family: "Helvetica";
+  color: white;
+  font-weight: 700;
+  height: 100%;
+  width: min-content;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background: linear-gradient(to top, rgb(0, 89, 255), rgb(110, 159, 250));
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .3);
+  opacity: 1;
+  transition: opacity 0.4s ease;
+  font-size: 15px;
+  padding: 10px;
+}
+.tag-section{
+  width: 39vw;
+  display: flex;
+  justify-content: start;
+  margin-top: 10px;
+  gap: 5px;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1; /* Ensure modal overlay appears above other content */
+}
+
+.modal {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  max-width: 80%;
+  max-height: 80%;
+  overflow: auto;
+  z-index: 2
+}
+
+.modal button {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal button:hover {
+  background-color: #0056b3;
+}
+
+#homepage-profile-photo{
+  position: absolute;
+  top: 18px;
+  right: 3.5vw;
+  height: 80px;
+  width: 80px;
+  text-align: center;
+  box-sizing: border-box;
+  background: linear-gradient(to top, rgb(0, 89, 255), rgb(110, 159, 250));
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .3);
+  opacity: 1;
+  transition: opacity 0.4s ease;
+  font-size: 22px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+#homepage-profile-photo:hover{
+  cursor: pointer;
+}
+
+.homepage-search-button{
+  font-family: "Helvetica";
+  color: white;
+  font-weight: 700;
+  height: 100%;
+  width: 18%;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background: linear-gradient(to top, rgb(0, 89, 255), rgb(110, 159, 250));
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .3);
+  opacity: 1;
+  transition: opacity 0.4s ease;
+  font-size: 25px;
+  padding: 10px;
+}
+
+#homepage-logo{
+  font-size: 40px;
+  margin: 0 0 0 0;
+  color: white;
+  font-family: "Helvetica";
+  font-weight: 700;
+  font-style: stroke;
+  display: inline-block;
+  text-shadow:
+  -1px -1px 2px black,
+   1px -1px 2px black,
+  -1px  1px 2px black,
+   1px  1px 2px black;
+}
+
+#homepage-logo-value{
+  color: rgb(0, 89, 255);
+  margin: 0 0 0 0;
+  display: inline-block;
+  text-shadow:
+  -1px -1px 0px white,
+  1px -1px 0px white,
+  -1px  1px 0px white,
+  1px  1px 0px white;
+  transition: color .2s linear, transform .2s linear;
+}
+
+#homepage-logo-value:hover{
+  cursor: default;
+}
+
+.homepage-selected-tags{
+  display: flex;
+  margin: 20px 0 0 0;
+  gap: 10px;
+  row-gap: 10px;
+  flex-wrap: wrap;
+}
+
+.homepage-filter-tag {
+  font-family: arial;
+  padding: 10px;
+  color: white;
+  background-color: rgb(0, 89, 255);
+  border-radius: 10px;
+  transition: background-color .4s ease;
+  display: block; 
+  width: fit-content;
+  margin: 0;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, .4);
+}
+.homepage-filter-tag:hover{
+  content: "Remove";
+  background-color: red;
+  cursor: pointer;
+}
+.hft-top{
+  margin: 0 0 0 0;
+  font-size: 15px;
+  color: orange;
+  font-weight: 700;
+}
+.hft-bottom{
+  margin: 3px 0 0 0;
+  font-size: 18px;
+}
+
+@media(max-width: 1250px) {
+  .search-controls {
+    width: 537px;
+  }
+  #filter-settings{
+    width: 537px;
+  }
+  
+}
+
+@media(max-width: 550px) {
+  .search-controls {
+    width: 95vw;
+  }
+
+  #filter-settings{
+    width: 88vw;
+    height: 31vh;
+    padding: 15px;
+  }
+
+  .filter-section{
+    width: 44%;
+  }
+
+  #homepage-add-filters{
+    flex-wrap: wrap;
+    row-gap: 10px;
+  }
+
+  .homepage-filter-section-head{
+    font-size: 18px;
+  }
+
+  .add-tag{
+    font-size: 13px;
+  }
+
+  .homepage-search-button{
+    font-size: 16px !important;
+    padding: 10px 5px;
+  }
+
+  .search-input{
+    font-size: 16px !important;
+  }
+
+  #homepage-logo{
+    font-size: 30px;
+  }
+  
+}
+
+@media (max-height: 750px) {
+  #filter-settings{
+    transform: translate(-50%, -35%);
+    height: 38vh;
+  }
+}

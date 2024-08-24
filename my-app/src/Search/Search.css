@@ -1,0 +1,313 @@
+
+.header2{
+  background-color: orange;
+  height: 11vh;
+  width: 100vw;
+  position: absolute;
+  top: 0%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to bottom, #a7a9fa 0%, #ffffff 80%);
+  box-shadow: 0 3px 4px rgba(0, 0, 0, .4);
+}
+.logo-and-search2 {
+  position: static;
+  font-size: 1rem;
+  text-align: center;
+  margin: 0 0 0 20px;
+}
+.search-controls2 {
+  margin-top: 10px;
+  width: 43vw;
+  display: flex;
+  justify-content: baseline;
+  gap: 20px;
+  
+}
+.search-input2 {
+  border: 2px solid black;
+  border-radius: 0px;
+  padding: 2px 4px;
+  width: 30vw;
+  font-size: 3vh;
+  padding: 2px;
+  height: 35px;
+}
+.filter-button2,
+.search-button2 {
+  font-family: "Helvetica";
+  color: white;
+  font-weight: 700;
+  height: 100%;
+  width: 18%;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background: linear-gradient(to top, rgb(0, 89, 255), rgb(110, 159, 250));
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .3);
+  opacity: 1;
+  transition: opacity 0.4s ease;
+  font-size: 25px;
+  padding: 10px;
+}
+.search-input2 {
+  font-family: Helvetica;
+  color: black;
+  border: 0px solid gray;
+  border-radius: 10px;
+  font-size: 18px;
+  height: 100%;
+  width: 61% !important;
+  box-sizing: border-box;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .3);
+  font-size: 25px;
+  padding: 10px;
+}
+#search-home-button{
+  height: 70px;
+  width: 70px;
+  text-align: center;
+  box-sizing: border-box;
+  background: linear-gradient(to top, rgb(0, 89, 255), rgb(110, 159, 250));
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .3);
+  opacity: 1;
+  transition: opacity 0.4s ease;
+  font-size: 30px;
+  margin: 0 20px 0 0;
+}
+#filter-settings2 {
+  position: static;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+  font-size: 16px;
+  width: 55%;
+  overflow-y:auto;
+  padding: 20px 0 !important;
+}
+.filter-section2 {
+  display: flex;
+  width: 15vw;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+}
+.filter-section2 h1 {
+  font-size: 25px;
+  margin: 0; 
+}
+.filter-right-side2{
+  display: flex;
+  justify-content: end;
+  gap: 5px;
+}
+.tag2 {
+  font-family: arial;
+  padding: 10px; 
+  font-size: 18px;
+  color: white;
+  background: blue;
+  border-radius: 0px;
+  transition-duration: 600ms;
+  margin-top: 10px; 
+  display: block; 
+  width: fit-content; 
+}
+.tag2:hover{
+  content: "Remove";
+  background: red;
+  cursor: pointer;
+}
+
+.non-header-container{
+  margin: 10vh 0 0 0;
+  height: 90vh;
+  display:flex;
+}
+
+.profile-photo-search{
+  border-radius: 8px;
+  max-width: 100px;
+  height: auto
+}
+
+#filter-settings2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 16px;
+  transition: top .5s ease-in-out;
+  box-sizing: border-box;
+  height: 100%;
+  width: 0;
+  border-radius: 0px;
+  border: 3px solid black;
+  overflow-y:auto;
+  background-color: white;
+  border: 0px solid gray;
+  border-radius: 10px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .3);
+  transition: width .3s ease;
+  padding: 20px;
+}
+#search-add-filters2{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin: 10px 0 20px 0;
+}
+.filter-section2 {
+  font-family: "Helvetica";
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: space-between;
+  width: 80%; 
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 10px;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, .4);
+  padding: 8px;
+}
+.search-filter-section-head2 {
+  font-family: Helvetica;
+  font-weight: 700;
+  margin: 5px 0 10px 0 !important;
+  text-align: left;
+  color: rgb(102, 98, 98);
+  font-size: 25px;
+  width: 100%;
+}
+.filter-right-side2{
+  display: flex;
+  width: 100%;
+  justify-content: flex-start !important;
+  gap: 5px;
+}
+.filter-select2{
+  width: 100%;
+}
+.add-tag2{
+  font-family: "Helvetica";
+  color: white;
+  font-weight: 700;
+  height: 100%;
+  width: min-content;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background: linear-gradient(to top, rgb(0, 89, 255), rgb(110, 159, 250));
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .3);
+  opacity: 1;
+  transition: opacity 0.4s ease;
+  font-size: 15px;
+  padding: 10px;
+}
+
+.search-filter-tag2 {
+  font-family: arial;
+  padding: 10px;
+  color: white;
+  background-color: rgb(0, 89, 255);
+  border-radius: 10px;
+  transition: background-color .4s ease;
+  display: block; 
+  width: fit-content;
+  margin: 0;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, .4);
+}
+.search-filter-tag2:hover{
+  content: "Remove";
+  background-color: red;
+  cursor: pointer;
+}
+.hft-top2{
+  margin: 0 0 0 0;
+  font-size: 15px;
+  color: orange;
+  font-weight: 700;
+}
+.hft-bottom2{
+  margin: 3px 0 0 0;
+  font-size: 18px;
+}
+
+.card-container{
+  width: 100%;
+  height: 90vh;
+  box-sizing: border-box;
+  padding: 3vh 3vw;
+  background: url('../Photos/Gator-On-World.jpg') center/cover no-repeat, rgba(176, 182, 216, 0.8);
+  background-blend-mode: overlay; 
+  display: flex;
+  justify-content: space-evenly;
+  align-content: flex-start;
+  align-items: start;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  gap: 15px;
+  row-gap: 15px;
+}
+
+.profile-photo-search{
+  height: 80%;
+  width: 30%;
+  object-fit: cover;
+}
+
+.search-card{
+  background: white;
+  width: 48%;
+  height: 24vh;
+  font-family: Helvetica;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 8px;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, .5);
+  border-radius: 15px;
+}
+
+.search-basic-info{
+  width: 70%;
+  margin: 0 0 0 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 3px;
+  height: 90%;
+}
+
+.search-basic-info div{
+  margin: 2px;
+  font-weight: 700;
+}
+
+.search-basic-info-type{
+  color: rgb(223, 114, 12);
+}
+
+.search-basic-info-value{
+  color: rgb(1, 70, 199);
+}
+
+.search-selected-tags{
+  border: 1px solid gray;
+  border-radius: 10px;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, .4);
+  padding: 8px;
+  width: 80%;
+  height: 100%;
+}
+
+#search-selected-tags-container{
+  margin: 15px 0 0 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  overflow-y: auto;
+}

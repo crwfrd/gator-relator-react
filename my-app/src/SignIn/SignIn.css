@@ -1,0 +1,244 @@
+@font-face {
+    font-family: 'Helvetica';
+    src: url(../Photos/Helvetica.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#sign-in-box {
+    width: 450px;
+    margin: auto;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .5);
+    background: linear-gradient(to bottom, #c5c6f7 0%, #ffffff 40%);
+}
+
+#sign-in-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    height: 100vh;
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+    font-family: Helvetica;
+    background: url('../Photos/Gator-On-World.jpg') center/cover no-repeat, rgba(176, 182, 216, 0.8); 
+    background-blend-mode: overlay; 
+}
+
+body{
+    padding: 0;
+    margin: 0;
+}
+
+#sign-in-background{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: calc(90% + 14px);
+    color: rgb(102, 98, 98);
+    margin: 10px auto;
+    font-size: 18px;
+    font-weight: 700;
+}
+#divider::before,
+#divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid rgb(102, 98, 98);
+    margin: 0 10px;
+}
+
+#login-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#login-input-container{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+}
+
+.login-lead-p{
+    font-size: 18px;
+    color: rgb(102, 98, 98);
+    margin: 3px 0 9px 0;
+}
+
+.login-sub-p{
+    color: rgb(102, 98, 98);
+    margin: 10px auto 4px 0;
+    text-align: left;
+}
+
+#login-form h1{
+    color: black;
+    margin-bottom: 5px;
+}
+
+#login-form input{
+    font-family: Helvetica;
+    color: black;
+    border: 0px solid gray;
+    border-radius: 10px;
+    height: 5vh;
+    font-size: 18px;
+    width: 100%;
+    box-sizing: border-box;
+    margin:2px auto 7px auto;
+    padding: 5px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, .3);
+}
+
+#login-form button{
+    font-family: "Helvetica";
+    color: white;
+    font-weight: 700;
+    width: 100%;
+    margin: 25px 0 10px 0;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background: linear-gradient(to top, rgb(0, 89, 255), rgb(110, 159, 250));
+    box-shadow: 0 2px 2px rgba(0, 0, 0, .3);
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+
+.sign-up-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sign-up-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%
+}
+
+.sign-up-lead-p{
+    font-size: 18px;
+    color: rgb(102, 98, 98);
+    margin: 3px 0 0 0;
+}
+
+.sign-up-sub-p{
+    color: rgb(102, 98, 98);
+    margin: 8px auto 4px 0;
+    text-align: left;
+}
+
+.sign-up-form input{
+    font-family: Helvetica;
+    color: black;
+    border: 0px solid gray;
+    border-radius: 10px;
+    height: 5vh;
+    font-size: 18px;
+    width: 100%;
+    box-sizing: border-box;
+    margin:2px auto 7px auto;
+    padding: 5px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, .3);
+}
+
+.sign-up-form button{
+    font-family: "Helvetica";
+    color: white;
+    font-weight: 700;
+    width: 49%;
+    margin: 25px 0 10px 0;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background: linear-gradient(to top, rgb(0, 89, 255), rgb(110, 159, 250));
+    box-shadow: 0 2px 2px rgba(0, 0, 0, .3);
+    transition: opacity .4s ease;
+}
+
+#sign-up-button-container{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.auth-status{
+    color: rgb(102, 98, 98);
+    margin: 8px auto 4px 0;
+    text-align: center;
+}
+
+.error-popup{
+    color: rgb(255, 12, 12);
+    margin: 8px auto 4px auto;
+    text-align: center;
+}
+
+.auth-button{
+    font-family: "Helvetica";
+    color: white;
+    font-weight: 700;
+    width: 90%;
+    margin: 10px 5%;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background: linear-gradient(to top, rgb(0, 89, 255), rgb(110, 159, 250));
+    box-shadow: 0 2px 2px rgba(0, 0, 0, .3);
+    transition: opacity .4s ease;
+}
+
+.button-loading {
+    opacity: 0.5 !important;
+    background: linear-gradient(to top, rgb(0, 89, 255), rgb(110, 159, 250)) !important;
+    position: relative;
+}
+
+.loading-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 4px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    border-top: 4px solid rgb(0,33,165);
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@media (max-width: 500px){
+    #sign-in-box{
+        width: calc(100vw - 60px);
+    }
+    #login-welcome{
+        text-align: center;
+    }
+}
+
+@media (max-height: 760px) {
+    #sign-in-box{
+        border-radius: 0px;
+        width: 100vw !important;
+        height: 100vh
+    }
+    #login-welcome{
+        text-align: center;
+    }
+}
+
