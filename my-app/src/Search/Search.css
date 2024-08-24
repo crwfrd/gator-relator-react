@@ -234,7 +234,7 @@
   font-size: 18px;
 }
 
-.card-container{
+#card-container{
   width: 100%;
   height: 90vh;
   box-sizing: border-box;
@@ -242,18 +242,19 @@
   background: url('../Photos/Gator-On-World.jpg') center/cover no-repeat, rgba(176, 182, 216, 0.8);
   background-blend-mode: overlay; 
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-content: flex-start;
   align-items: start;
   flex-wrap: wrap;
   overflow-y: auto;
   gap: 15px;
   row-gap: 15px;
+  transition: width .3s ease;
 }
 
 .profile-photo-search{
-  height: 80%;
-  width: 30%;
+  height: 70%;
+  width: 200px !important;
   object-fit: cover;
 }
 
@@ -279,6 +280,7 @@
   justify-content: space-evenly;
   gap: 3px;
   height: 90%;
+  overflow-y: auto;
 }
 
 .search-basic-info div{
@@ -310,4 +312,46 @@
   flex-wrap: wrap;
   gap: 10px;
   overflow-y: auto;
+}
+
+@media (max-width: 1200px) {
+  .filter-button2,
+.search-button2 {
+  height: 100%;
+  width: 25%;
+  font-size: 20px;
+}
+.search-input2 {
+  width: 80% !important;
+  font-size: 20px;
+}
+.search-controls2{
+  width: 70vw;
+  gap: 7px
+}
+#search-home-button{
+  height: 50px;
+  width: 50px;
+  text-align: center !important;
+  font-size: 25px;
+  margin: 0 10px -10px 0
+}
+
+}
+
+@media (max-width: 700px){
+  .search-card{
+    width: 99%
+  }
+  .filter-button2,
+  .search-button2 {
+    font-size: 15px;
+  }
+  .search-input2 {
+    font-size: 17px;
+  }
+  #search-home-button{
+    height: 42px;
+    width: 42px;
+  }
 }

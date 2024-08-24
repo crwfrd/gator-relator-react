@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Search.css';
 import {storage, db} from "../firebase.js"
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, getDocs, collection } from "firebase/firestore";
 import { ref, getDownloadURL } from 'firebase/storage';
 import {useLocation, useNavigate} from 'react-router-dom';
 
@@ -202,12 +202,22 @@ import {useLocation, useNavigate} from 'react-router-dom';
   
     const toggleFilterSettings = () => {
       const filterSettings = document.getElementById("filter-settings2");
+      const cardContainer = document.getElementById("card-container");
       if (showFilterSettings){
         filterSettings.style.width = "0";
         filterSettings.style.padding = "0";
+        cardContainer.style.width="100vw";
+        cardContainer.style.padding = "3vh 3vw";
       }
       else{
-        filterSettings.style.width = "30vw";
+        if (window.screen.width < 850){
+          filterSettings.style.width = "100vw";
+          cardContainer.style.width="0";
+          cardContainer.style.padding = "0";
+        }
+        else{
+          filterSettings.style.width = "30vw";
+        }
         filterSettings.style.padding = "8px";
       }
       setShowFilterSettings(!showFilterSettings);
@@ -235,22 +245,45 @@ import {useLocation, useNavigate} from 'react-router-dom';
 
       console.log(finalTags); // This is an string array of uncategorized tags
 
-      try{
-        const response = await fetch('https://gator-relator-flask.onrender.com/card-info', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(finalTags)
-        })
+      const usersRef = collection(db, 'users');
+      const usersSnapshot = await getDocs(usersRef);
 
-        const res = await response.json();
-        console.log(res);
-        setCards(res);
-      }
-      catch (error){
-        console.log(error);
-      }
+      const validUsers = [];
+      const indexCount = new Map();
+      const final = [];
+
+      usersSnapshot.forEach((doc) => {
+        const userDict = doc.data();
+
+        let userTags = userDict.firstName.split(' ')
+          .concat(userDict.lastName.split(' '))
+          .concat([String(userDict.gradYear), userDict.major]);
+
+        userDict.companies.forEach(company => userTags.push(company));
+        userDict.studentOrgs.forEach(org => userTags.push(org));
+
+        finalTags.forEach(finalTags => {
+          if (userTags.includes(finalTags)) {
+            const userIndex = validUsers.indexOf(userDict);
+            if (userIndex !== -1) {
+              indexCount.set(userIndex, (indexCount.get(userIndex) || 0) + 1);
+            } else {
+              validUsers.push(userDict);
+              indexCount.set(validUsers.length - 1, 1);
+            }
+          }
+        });
+      });
+
+      
+      const sortedIndexes = Array.from(indexCount.entries())
+        .sort((a, b) => b[1] - a[1])
+        .map(entry => entry[0]);
+
+      sortedIndexes.forEach(index => final.push(validUsers[index]));
+
+      setCards(final);
+
     }
 
     const mouseEnter = (e) => {
@@ -284,7 +317,7 @@ import {useLocation, useNavigate} from 'react-router-dom';
 
         <div className='non-header-container'>
           <FilterSettings addTag={addTag} removeTag={removeTag}/>
-          <div className="card-container">
+          <div id="card-container">
             {cards.map((cardInfo, index) => {
               return (
                   <div key={index} className='search-card'>
