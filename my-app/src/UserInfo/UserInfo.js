@@ -18,6 +18,24 @@ function UserInfoForm({ userData, onUpdate, companies, tags }) {
   const [photoURL, setPhotoURL] = useState(userData[5]);
   const [previewPhoto, setPreviewPhoto] = useState();
 
+  const majors = ['Accounting', 'Advertising', 'Aerospace Engineering', 'African American Studies', 'African Languages', 'Agricultural Education/Communication',
+    'Agricultural Operations Management', 'Animal Sciences', 'Anthopology', 'Applied Physiology and Kinesiology', 'Arabic', 'Architecture',
+    'Art History', 'Art', 'Astronomy and Astrophysics', 'Biological Engineering', 'Biology', 'Biomedical Engineering', 'Business Administration', 
+    'Chemical Engineering', 'Chemistry', 'Chinese', 'Civil Engineering', 'Classical Studies', 'Communication Sciences and Disorders', 'Computer Engineering',
+    'Computer Science', 'Construction Management', 'Criminology', 'Dance', 'Data Science', 'Dietetics', 'Digital Arts and Sciences', 'Dual Languages', 
+    'Early Childhood Education', 'Economics', 'Education Sciences', 'Electrical Engineering', 'Elementary Education', 'Engineering', 'English', 'Entomology and Nematology',
+    'Enviornmental Engineering', 'Environmental Science', 'Family, Youth and Community Sciences', 'Finance', 'Fire and Emergency Services', 'Food and Resource Economics',
+    'Food Science', 'Foreign Languages and Literatures', 'Forest Resources and Conservation', 'French and Francophone Studies', 'Geography', 'Geology', 'Geomatics',
+    'German', 'Graphic Design', 'Health Education and Behavior', 'Health Science', 'Hebrew', 'Hispanic and Latin American Languages, Literatures and Linguistics',
+    'History', 'Industrial and Systems Engineering', 'Information Systems', 'Interdisciplinary Studies', 'Interior Design', 'International Studies', 'Italian',
+    'Japanese', 'Jewish Studies', 'Journalism', 'Linguistics', 'Management', 'Marine Sciences', 'Marketing', 'Materials Science and Engineering', 'Mathematics', 
+    'Mechanical Engineering', 'Media Production, Management, and Technology', 'Meteorology', 'Microbiology and Cell Science', 'Music Education', 
+    'Music', 'Natural Resource Conservation', 'Nuclear Engineering', 'Nursing', 'Nutritional Sciences', 'Pharmacy', 'Philosophy', 'Physics', 'Plant Science',
+    'Political Science', 'Portugese', 'Psycology', 'Public Health', 'Public Relations', 'Religion', 'Russian', 'Sociology', 'Soil, Water, and Ecosystem Sciences',
+    'Spanish', 'Spanish and Portugese', 'Sport Management', 'Statistics', 'Sustainability and the Built Environment', 'Sustainability Studies', 'Theatre', 
+    'Theatre Performance', 'Theatre Production', 'Tourism, Hospitality and Event Management', 'Wildlife Ecology and Conservation', 'Women\'s Studies', 'Zoology'
+    ]
+
 
   useEffect(() => {
 
@@ -181,7 +199,14 @@ function UserInfoForm({ userData, onUpdate, companies, tags }) {
         <div className="input-group double-input-group">
           <div>
             <label>Major:</label>
-            <input type="text" value={major} onChange={(e) => setMajor(e.target.value)} />
+            <select onChange={(e) => setMajor(e.target.value)}>
+              <option value="">Select Major</option>
+              {majors.map((major, index) => (
+                <option key={index} value={major}>
+                  {major}
+                </option>
+              ))}
+            </select>
           </div>
           <div>
             <label>Year:</label>

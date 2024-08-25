@@ -89,7 +89,7 @@ import {useLocation, useNavigate} from 'react-router-dom';
               'Food Science', 'Foreign Languages and Literatures', 'Forest Resources and Conservation', 'French and Francophone Studies', 'Geography', 'Geology', 'Geomatics',
               'German', 'Graphic Design', 'Health Education and Behavior', 'Health Science', 'Hebrew', 'Hispanic and Latin American Languages, Literatures and Linguistics',
               'History', 'Industrial and Systems Engineering', 'Information Systems', 'Interdisciplinary Studies', 'Interior Design', 'International Studies', 'Italian',
-              'Japanese', 'Jewish Studies', 'Journalism', 'Linguistics', 'Management', 'Marine Sciences', 'Marketing', 'Materials Science and Engineering', 'Mathmatics', 
+              'Japanese', 'Jewish Studies', 'Journalism', 'Linguistics', 'Management', 'Marine Sciences', 'Marketing', 'Materials Science and Engineering', 'Mathematics', 
               'Mechanical Engineering', 'Media Production, Management, and Technology', 'Meteorology', 'Microbiology and Cell Science', 'Music Education', 
               'Music', 'Natural Resource Conservation', 'Nuclear Engineering', 'Nursing', 'Nutritional Sciences', 'Pharmacy', 'Philosophy', 'Physics', 'Plant Science',
               'Political Science', 'Portugese', 'Psycology', 'Public Health', 'Public Relations', 'Religion', 'Russian', 'Sociology', 'Soil, Water, and Ecosystem Sciences',
