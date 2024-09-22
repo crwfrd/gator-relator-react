@@ -273,8 +273,8 @@
 }
 
 .search-basic-info{
-  width: 70%;
-  margin: 0 0 0 5px;
+  width: 60%;
+  margin: 0 0 0 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -312,6 +312,24 @@
   flex-wrap: wrap;
   gap: 10px;
   overflow-y: auto;
+}
+
+#add-to-chat-button{
+  background: linear-gradient(to top, rgb(0, 89, 255), rgb(110, 159, 250));
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .3);
+  font-size: 30px;
+  border: 2px solid black;
+  cursor: pointer;
+  padding: 0px;
+  height: 70px;
+  width: 70px;
+  text-align: center;
+  box-sizing: border-box;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+  margin: 0 20px 100px 0; 
+  border-radius: 50%;
+  background: url('../Photos/Chat-Icon.jpg') center/cover no-repeat, rgba(176, 182, 216, 0.8);
 }
 
 @media (max-width: 1200px) {

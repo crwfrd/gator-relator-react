@@ -3,6 +3,7 @@ import Homepage from "./Homepage/Homepage.js"
 import Search from './Search/Search.js';
 import UserInfo from './UserInfo/UserInfo.js';
 import SignIn from './SignIn/SignIn.js';
+import Messages from './Messages/Messages.js';
 
 import {
   BrowserRouter as Router,
@@ -18,6 +19,7 @@ function App() {
         <Routes>
         <Route exact path="/" element={<SignIn />} />
         <Route path="/Homepage" element={<Homepage />} />
+        <Route path = "/Messages" element ={<Messages />}/>
         <Route path="/Search" element={<Search />} />
         <Route path="/UserInfo" element={<UserInfo />} />
         <Route path="*" element={<Navigate to="/" />} />

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Search.css';
 import {storage, db} from "../firebase.js"
-import { doc, getDoc, getDocs, collection } from "firebase/firestore";
+import { doc, getDoc, getDocs, collection, setDoc, updateDoc, serverTimestamp} from "firebase/firestore";
 import { ref, getDownloadURL } from 'firebase/storage';
 import {useLocation, useNavigate} from 'react-router-dom';
 
@@ -254,6 +254,7 @@ import {useLocation, useNavigate} from 'react-router-dom';
 
       usersSnapshot.forEach((doc) => {
         const userDict = doc.data();
+        userDict.uid = doc.id;
 
         let userTags = userDict.firstName.split(' ')
           .concat(userDict.lastName.split(' '))
@@ -306,6 +307,76 @@ import {useLocation, useNavigate} from 'react-router-dom';
       searchClicked(searchInput);
     }, []);
   
+    const handleDM = async (userInfo) => {
+      console.log("User Info UID: ", userInfo.uid);
+    
+      const combinedId =
+        location.state.uid > userInfo.uid
+          ? location.state.uid + userInfo.uid
+          : userInfo.uid + location.state.uid;
+    
+      try {
+        // Check if the chat already exists
+        const res = await getDoc(doc(db, "chats", combinedId));
+    
+        if (!res.exists()) {
+          // If the chat doesn't exist, create it
+          await setDoc(doc(db, "chats", combinedId), { messages: [] });
+          console.log("Created new chat with ID: ", combinedId);
+        }
+    
+        // Fetch current user's data (who is initiating the DM)
+        const docRef = doc(db, "users", location.state.uid);
+        const docSnap = await getDoc(docRef);
+        const userData = docSnap.data();
+        console.log("Current User Data: ", userData);
+    
+        // Ensure userChats document exists for the initiating user
+        const userChatsRef = doc(db, "userChats", location.state.uid);
+        const userChatsSnap = await getDoc(userChatsRef);
+        if (!userChatsSnap.exists()) {
+          await setDoc(userChatsRef, {});  // Create an empty document
+          console.log("Created userChats for initiating user");
+        }
+    
+        // Ensure userChats document exists for the receiving user
+        const userChatsReceiverRef = doc(db, "userChats", userInfo.uid);
+        const userChatsReceiverSnap = await getDoc(userChatsReceiverRef);
+        if (!userChatsReceiverSnap.exists()) {
+          await setDoc(userChatsReceiverRef, {});  // Create an empty document
+          console.log("Created userChats for receiving user");
+        }
+    
+        // Update the initiating user's chat data
+        await updateDoc(userChatsRef, {
+          [combinedId + ".userInfo"]: {
+            uid: userInfo.uid,
+            displayName: userInfo.firstName,
+            photoURL: userInfo.photoURL,
+          },
+          [combinedId + ".date"]: serverTimestamp(),
+        });
+        console.log("Updated initiating user's chat data");
+    
+        // Update the receiving user's chat data
+        await updateDoc(userChatsReceiverRef, {
+          [combinedId + ".userInfo"]: {
+            uid: location.state.uid,
+            displayName: userData.firstName,
+            photoURL: userData.photoURL,
+          },
+          [combinedId + ".date"]: serverTimestamp(),
+        });
+        console.log("Updated receiving user's chat data");
+    
+        // Navigate to the Messages page after successful updates
+        navigate("/Messages", { state: { uid: location.state.uid } });
+      } catch (err) {
+        console.error("Error handling DM: ", err);
+      }
+    };
+
+
     return (
       <>
         <div className="header2" >
@@ -330,6 +401,7 @@ import {useLocation, useNavigate} from 'react-router-dom';
                       <div><span className='search-basic-info-type'>Companies</span> - <span className='search-basic-info-value'>{cardInfo.companies.join(", ")}</span></div>
                       <div><span className='search-basic-info-type'>Organizations</span> - <span className='search-basic-info-value'>{cardInfo.studentOrgs.join(", ")}</span></div>
                     </div>
+                    <button id ='add-to-chat-button' onClick = {() => handleDM(cardInfo)}/>
                   </div>
                 );}
               )}

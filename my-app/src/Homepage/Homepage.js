@@ -44,6 +44,37 @@ const Corner = ({ onProfileClick, photoUID}) => {
   );
 };
 
+const ChatIcon = ({ onMessageClick }) => {
+  const mouseEnter = (e) => {
+    e.target.style.opacity = ".8";
+  };
+
+  const mouseLeave = (e) => {
+    e.target.style.opacity = "1";
+  };
+
+  const mouseDown = (e) => {
+    e.target.style.background = "linear-gradient(to top, rgb(0, 54, 155), rgb(54, 110, 212))";
+  };
+
+  const mouseUp = (e) => {
+    e.target.style.background = "linear-gradient(to top, rgb(0, 89, 255), rgb(110, 159, 250))";
+  };
+
+  return (
+    <img
+      alt=""
+      className="chat-icon"
+      onClick={onMessageClick}
+      onMouseEnter={mouseEnter}
+      onMouseLeave={mouseLeave}
+      onMouseDown={mouseDown}
+      onMouseUp={mouseUp}
+    />
+  );
+};
+
+
 const SearchBar = ({ toggleFilterSettings }) => {
   let navigate = useNavigate();
   let location = useLocation()
@@ -282,7 +313,11 @@ const Homepage = () => {
   const handleProfileClick = () => {
     //setShowPopup(true);
     navigate("/UserInfo", {state: {uid: uid}})
-  }
+  };
+
+  const handleMessagesClick = () => {
+    navigate("/Messages", {state: {uid: uid}});
+  };
   // const handleClosePopup = () => {
   //   setShowPopup(false);
   // };
@@ -306,6 +341,7 @@ const Homepage = () => {
       <Corner onProfileClick = {handleProfileClick} photoUID={uid}/>
       <SearchBar toggleFilterSettings={toggleFilterSettings} />
       <FilterSettings />
+      <ChatIcon onMessageClick = {handleMessagesClick} />
     </div>
   );
 };
